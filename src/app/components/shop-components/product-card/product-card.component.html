@@ -1,0 +1,15 @@
+<div class="product-card no-us-copy">
+  <a class="no-dec-link" [href]="productLink"></a>
+    <div class="image-product">
+      <img class="image-product" 
+           (mouseenter)="onMouseEnter()" 
+           (mouseleave)="onMouseLeave()"
+           [src]="currentImage" 
+           alt="product-card-image">
+    </div>
+    <span class="name-product txt-wrap pd-20">{{  NameProduct  }}</span>
+    <span class="price-product txt-wrap pd-20">{{  productPrice  }} RUB</span>
+  <button class="btn-add-cart pd-20">
+    <span class="txt-btn-add-cart">Add to cart</span>
+  </button>
+</div>

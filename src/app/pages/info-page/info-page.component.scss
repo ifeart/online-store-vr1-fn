@@ -1,0 +1,55 @@
+.info-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.heading-info-page {
+    font-size: 100px;
+    font-family: "Arial", Arial, sans-serif;
+    font-weight: 300;
+
+}
+
+.list-links-info-page {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+}
+
+.element-list-info-page {
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.link-info-page {
+    
+}
+
+.m-li-info-page {
+    list-style-type: none;
+    padding-left: 0px;
+
+}
+
+.tlt-m-li-el-info {
+    max-width: fit-content;
+    color: white;
+    background-color: black;
+    padding: 0 5px;
+    font-size: 32px;
+
+}
+
+.m-li-el-info {
+    color: black;
+    margin-top: 24px;
+}
+
+.m-li-el-info:hover {
+    background-color: #EEE;
+    max-width: max-content;
+}

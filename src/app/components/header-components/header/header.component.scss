@@ -1,0 +1,56 @@
+/*КУЧА ЛИШНЕГО МУСОРА*/
+
+.header-line {
+    border-bottom: 1px solid #EEEEEE;
+}
+
+.header-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 0;
+}
+
+.header-element {
+    list-style-type: none;
+}
+
+.main-title{
+    
+}
+
+.main-title-text {
+    margin: 10px 0;
+    font-size: 32px;
+}
+
+.div-nav-btn {
+    background-color: #EEEEEE;
+    border-radius: 7px;
+}
+
+.link-nav-btn {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    color: black;
+}
+
+.icon-nav-btn {
+    color: rgb(255, 255, 255);
+    margin-right: 5px;
+}
+
+.text-nav-btn {
+    font-size: 16px;
+}
+
+.mini-header-list {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 0;
+    width: 250px;
+}

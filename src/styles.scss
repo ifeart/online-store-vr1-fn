@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+.no-dec-link {
+    text-decoration: none;
+    color: black;
+}
+
+.pd-20 {
+    margin: 20px;
+}
+
+.no-us-copy {
+    user-select: none;
+}
+
+body {
+    margin: 0;
+}
+
+span, p, h1, h2 {
+    font-family: 'Arial', Arial, sans-serif;
+}
