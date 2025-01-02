@@ -1,36 +1,5 @@
 <header>    
     <nav class="header-line">
-        <!--<ul class="header-list">
-            <li class="header-element">
-                <div class="div-nav-btn">
-                    <a class="link-nav-btn" href="/shop">
-                        <img class="icon-nav-btn" src="assets/icons/shop-icon.svg" alt="icon_shop">
-                        <span class="text-nav-btn">SHOP</span>
-                    </a>
-                </div>
-            </li>
-            <li class="header-element">MORE</li>
-            <li class="header-element main-title">FNDRS</li>
-            <li class="header-element">account</li>
-            <li class="header-element">Cart</li>
-        </ul>
-        <ul class="header-list">
-            <li class="header-element">
-                <app-btn-header imgSrc="assets/icons/shop-icon.svg" rLink="/shop" btnText="SHOP"></app-btn-header>
-            </li>
-            <li class="header-element">
-                <app-btn-header imgSrc="assets/icons/shop-icon.svg" rLink="/" btnText="MORE"></app-btn-header>
-            </li>
-            <li class="header-element main-title">
-                <p>FNDRS</p>
-            </li>
-            <li class="header-element">
-                <app-btn-header imgSrc="assets/icons/shop-icon.svg" rLink="/" btnText="account"></app-btn-header>
-            </li>
-            <li class="header-element">
-                <app-btn-header imgSrc="assets/icons/shop-icon.svg" rLink="/catr" btnText="Cart"></app-btn-header>
-            </li>
-        </ul>-->
         <ul class="header-list">
             <li class="header-element">
                 <ul class="mini-header-list">
@@ -57,4 +26,15 @@
             </li>
         </ul>
     </nav>
+
+    <!--ТЕСТ БИЛД DIV УБРАТЬ-->
+    <div class="second-header-categories">
+        <ul class="header-categories-list">
+            @for (categoryProduct of categoriesProducts; track categoryProduct.id) {
+                <li class="head-el-category">
+                    <a class="no-dec-link head-category-link change-all-hover" [href]="categoryProduct.slug_category | categoryUrl">{{  categoryProduct.name_category  }}</a>
+                </li>
+            }
+        </ul>
+    </div>
 </header>

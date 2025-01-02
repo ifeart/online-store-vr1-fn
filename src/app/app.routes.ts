@@ -7,6 +7,8 @@ import { InProgressPageComponent } from './pages/in-progress-page/in-progress-pa
 import { OfferPageComponent } from './pages/offer-page/offer-page.component';
 import { DebugPageComponent } from './pages/debug-page/debug-page.component';
 import { ContactsPageComponent } from './pages/contacts-page/contacts-page.component';
+import { ProductDetailPageComponent } from './pages/product-detail-page/product-detail-page.component';
+import { CategoryPageComponent } from './pages/category-page/category-page.component';
 
 export const routes: Routes = [
     {path: '', component: MainPageComponent},
@@ -16,6 +18,7 @@ export const routes: Routes = [
     {path: 'offer', component: OfferPageComponent},
     {path: 'debug', component: DebugPageComponent},
     {path: 'contacts', component: ContactsPageComponent},
+    {path: 'product/:id_product', component: ProductDetailPageComponent},
+    {path: 'category/:id_category', component: CategoryPageComponent},
     {path: '**', component: InProgressPageComponent},
-    
 ];

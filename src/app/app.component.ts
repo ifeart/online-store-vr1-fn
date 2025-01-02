@@ -1,28 +1,18 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "./components/header-components/header/header.component";
-import { BtnHeaderComponent } from './components/header-components/btn-header/btn-header.component';
 import { FooterComponent } from './components/footer-components/footer/footer.component';
-import { ProductCardsService } from './data/services/product-cards.service';
+import { EntryPopupComponent } from "./components/main-components/entry-popup/entry-popup.component";
+import { LoadingPageAnimationComponent } from "./components/main-components/loading-page-animation/lloading-page-animation.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, BtnHeaderComponent, FooterComponent],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent, EntryPopupComponent, LoadingPageAnimationComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
+
 export class AppComponent {
   title = 'FNDRS';
-  /*
-    productCardsService = inject(ProductCardsService)
-  productCards: any = []
-
-  constructor() {
-    this.productCardsService.getProductCards()
-      .subscribe(val => {
-        this.productCards = val
-      })
-  }
-  */
 }

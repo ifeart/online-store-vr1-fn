@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { DynamicTitleService } from '../../data/services/dynamic-title.service';
 
 @Component({
   selector: 'app-debug-page',
@@ -9,11 +9,7 @@ import { Title } from '@angular/platform-browser';
   styleUrl: './debug-page.component.scss'
 })
 export class DebugPageComponent {
-  constructor(private titleService: Title) {
-    this.setPageTitle('DEBUG');
-  }
-
-  setPageTitle(title: string) {
-    this.titleService.setTitle(title);
+  constructor(dynamicTitleService: DynamicTitleService) {
+    dynamicTitleService.setNewTitle('Страница отладки');
   }
 }

@@ -1,0 +1,22 @@
+<form 
+    class="product-type-radio-form" 
+    [formGroup]="sizeForm"
+>
+    @for (productType of productTypes; track productType.id) {
+        <div class="product-type-radio-btn">
+            <input 
+            type="radio" 
+            [id]="productType.id | productTypeId" 
+            name="selectedSize" 
+            [value]="productType"
+            [checked]="$first"
+            formControlName="selectedSize"
+            >
+            <label for="{{  productType.id | productTypeId  }}">
+                <span>{{  productType.name_size  }}</span>
+            </label>
+        </div>
+    }
+</form>
+<!-- <span id="article-product-selected">Артикул: {{  sizeForm.value.selectedSize.article  }}</span> -->
+<br>

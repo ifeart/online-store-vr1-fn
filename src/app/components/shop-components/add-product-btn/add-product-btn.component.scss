@@ -1,0 +1,18 @@
+.btn-add-cart {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.4s, color 0.4s;
+}
+
+.btn-add-cart:hover {
+    background-color: black;
+    color: white;
+}
+
+.txt-btn-add-cart {
+    font-weight: 700;
+}

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 import { DefaultLinkComponent } from "../../components/main-components/default-link/default-link.component";
 import { CopyTextFuncComponent } from '../../components/main-components/copy-text-func/copy-text-func.component';
+import { DynamicTitleService } from '../../data/services/dynamic-title.service';
 
 @Component({
   selector: 'app-info-page',
@@ -11,12 +11,10 @@ import { CopyTextFuncComponent } from '../../components/main-components/copy-tex
   styleUrl: './info-page.component.scss'
 })
 export class InfoPageComponent {
-  constructor(private titleService: Title) {
-    this.setPageTitle('INFO');
+  constructor(private dynamicTitleService: DynamicTitleService) {
+    this.dynamicTitleService.setMetaData('INFO',
+      'Контактная информация магагазина FNDRS', 
+      'FNDRS почта телеграмм доставка политика конфиденциальности контактная информация'
+    );
   }
-
-  setPageTitle(title: string) {
-    this.titleService.setTitle(title);
-  }
-
 }

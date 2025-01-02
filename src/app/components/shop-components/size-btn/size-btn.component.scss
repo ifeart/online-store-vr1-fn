@@ -1,0 +1,42 @@
+.product-type-radio-form {
+    display: flex;
+    gap: 10px;
+    margin: 10px;
+}
+
+.product-type-radio-btn input[type="radio"] {
+    display: none;
+}
+
+.product-type-radio-btn label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2em;
+    height: 2.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    font-size: 14px;
+    color: black;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 200;
+    background-color: #fff;
+}
+
+.product-type-radio-btn input[type="radio"]:checked + label {
+    border-color: black;
+    color: black;
+}
+
+.product-type-radio-btn input[type="radio"]:disabled + label {
+    border-color: #e0e0e0;
+    color: #e0e0e0;
+    cursor: not-allowed;
+}
+
+.product-type-radio-btn input[type="radio"]:not(:disabled):hover + label {
+    border-color: black;
+}

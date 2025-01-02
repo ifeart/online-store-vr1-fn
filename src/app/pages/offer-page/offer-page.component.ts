@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FullLinkComponent } from "../../components/main-components/full-link/full-link.component";
 import { EmailLinkComponent } from '../../components/main-components/email-link/email-link.component';
-import { Title } from '@angular/platform-browser';
+import { DynamicTitleService } from '../../data/services/dynamic-title.service';
+
 
 @Component({
   selector: 'app-offer-page',
@@ -11,11 +12,7 @@ import { Title } from '@angular/platform-browser';
   styleUrl: './offer-page.component.scss'
 })
 export class OfferPageComponent {
-  constructor(private titleService: Title) {
-    this.setPageTitle('CONTRACT OFFER');
-  }
-
-  setPageTitle(title: string) {
-    this.titleService.setTitle(title);
+  constructor(private dynamicTitleService: DynamicTitleService) {
+    this.dynamicTitleService.setTitle('Договор оферты');
   }
 }

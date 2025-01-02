@@ -1,0 +1,72 @@
+.product-main-div {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+img {
+    width: 100%;
+}
+
+.prod-type {
+    display: flex;
+    gap: 10px;
+}
+
+@media (max-width: 768px) {
+    .product-main-div {
+        flex-direction: column;
+    }
+    .main-img-product-col {
+        width: 100%;
+    }
+    .info-product-col {
+        width: 100%;
+    }
+}
+
+@media (min-width: 769px) {
+    .product-main-div {
+        flex-direction: row;
+    }
+    .main-img-product-col {
+        width: 50%;
+    }
+    .info-product-col {
+        width: 50%;
+    }
+}
+
+// @media (min-width: 1025px) {
+//     .product-main-div {
+//         flex-direction: row;
+//     }
+//     .main-img-product-col {
+//         width: 50%;
+//     }
+//     .info-product-col {
+//         width: 50%;
+//     }
+// }
+
+
+.product-main-div-error {
+    margin: auto;
+    border: 2px solid white;
+    border-radius: 15px;
+    padding: 20px;
+    padding-top: 15px;
+    width: fit-content;
+    font-size: larger;
+    text-transform: lowercase;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+.product-main-div-error:hover {
+    background-color: white;
+    border-color: black;
+    color: black;
+}

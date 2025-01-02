@@ -16,13 +16,21 @@
 .list-links-info-page {
     list-style-type: none;
     padding-left: 0;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr;
 }
+
 
 .element-list-info-page {
     padding: 20px;
     font-size: 24px;
     font-weight: bold;
+}
+
+@media (min-width: 1000px) {
+    .list-links-info-page {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .link-info-page {

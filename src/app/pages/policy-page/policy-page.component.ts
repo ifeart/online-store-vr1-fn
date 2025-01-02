@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { DynamicTitleService } from '../../data/services/dynamic-title.service';
 
 @Component({
   selector: 'app-policy-page',
@@ -9,12 +9,7 @@ import { Title } from '@angular/platform-browser';
   styleUrl: './policy-page.component.scss'
 })
 export class PolicyPageComponent {
-  constructor(private titleService: Title) {
-    this.setPageTitle('PRIVACY POLICY');
+  constructor(dynamicTitleService: DynamicTitleService) {
+    dynamicTitleService.setTitle('Политика персональных данных');
   }
-
-  setPageTitle(title: string) {
-    this.titleService.setTitle(title);
-  }
-
 }

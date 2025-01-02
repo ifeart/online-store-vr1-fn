@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './in-progress-page.component.scss'
 })
 export class InProgressPageComponent {
-
+  
 }

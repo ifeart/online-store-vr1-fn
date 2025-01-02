@@ -1,0 +1,17 @@
+@if (isVisible) {
+    <div class="entry-popup" (click)="closePopup()">
+        <div class="entry-popup-content" (click)="$event.stopPropagation()">
+            <img src="assets/images/entry-popup-img.jpeg" class="entry-p-img" alt="entry-popup-img">
+            <h3 class="entry-pop-head">Подпишись!</h3>
+            <p class="entry-p-text">
+                Подписывайся на наш телеграм канал, чтобы быть в курсе всех новых событий и следить за выгодными предложениями.
+            </p>
+            <div class="entry-p-main-btn">
+                <a href="https://t.me/durov" class="entry-p-main-link no-dec-link change-all-hover">Перейти</a>
+            </div>
+        </div>
+        <div class="close-popup-btn change-all-hover">
+            ×
+        </div>
+    </div>
+}
