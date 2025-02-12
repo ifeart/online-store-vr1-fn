@@ -8,7 +8,7 @@ export class CategoryUrlPipe implements PipeTransform {
 
   transform(value: string | null): string {
     if (!value) return `/shop`;
-    return `category/${value}`;
+    return `/category/${value}`;
   }
 
 }

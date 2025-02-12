@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { ProductCards } from '../../../data/interfaces/product-cards.interfaces';
 import { ImgUrlPipe } from '../../../helpers/pipes/img-url.pipe';
 import { ProductUrlPipe } from "../../../helpers/pipes/product-url.pipe";
+import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-product-card',
   standalone: true,
-  imports: [CommonModule, ImgUrlPipe, ProductUrlPipe],
+  imports: [CommonModule, ImgUrlPipe, ProductUrlPipe, RouterLink],
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.scss']
 })

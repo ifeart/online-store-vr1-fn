@@ -9,6 +9,12 @@ import { DebugPageComponent } from './pages/debug-page/debug-page.component';
 import { ContactsPageComponent } from './pages/contacts-page/contacts-page.component';
 import { ProductDetailPageComponent } from './pages/product-detail-page/product-detail-page.component';
 import { CategoryPageComponent } from './pages/category-page/category-page.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { canActivateAuth } from './auth/access.guard';
+import { AccountPageComponent } from './pages/account-page/account-page.component';
+import { SignupPageComponent } from './pages/signup-page/signup-page.component';
+import { canActivateSignup } from './auth/guest.guard';
+import { CartPageComponent } from './pages/cart-page/cart-page.component';
 
 export const routes: Routes = [
     {path: '', component: MainPageComponent},
@@ -20,5 +26,16 @@ export const routes: Routes = [
     {path: 'contacts', component: ContactsPageComponent},
     {path: 'product/:id_product', component: ProductDetailPageComponent},
     {path: 'category/:id_category', component: CategoryPageComponent},
+    {path: 'login', component: LoginPageComponent},
+    {path: 'cart', component: CartPageComponent},
+    {
+        path: 'account', component: AccountPageComponent,
+        canActivate: [canActivateAuth]
+    },
+    {
+        path: 'signup', component: SignupPageComponent,
+        canActivate: [canActivateSignup]
+    },
+
     {path: '**', component: InProgressPageComponent},
 ];

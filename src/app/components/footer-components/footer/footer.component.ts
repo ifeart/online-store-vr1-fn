@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { EmailSubFormComponent } from "../../main-components/email-sub-form/email-sub-form.component";
+import { SubToNewsFormComponent } from "../sub-to-news-form/sub-to-news-form.component";
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [EmailSubFormComponent],
+  imports: [SubToNewsFormComponent],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })

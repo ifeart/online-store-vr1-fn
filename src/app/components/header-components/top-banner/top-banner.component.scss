@@ -1,0 +1,38 @@
+.top-banner {
+    height: 38px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    align-content: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.5s ease-in-out;
+}
+
+.text-top-banner {
+    height: 19px;
+    font-family: 'Futura', sans-serif;
+    font-style: normal;
+    font-weight: 100;
+    font-size: 17px;
+    line-height: 19px;
+    color: #ffffff;
+}
+
+.link-top-banner {
+    color: white;
+    font-weight: 200;
+    text-decoration: underline solid 0.5px white;
+    width: fit-content;
+}
+
+.btn-close-top-banner {    
+    position: absolute;
+    height: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding-top: 2px;
+}

@@ -24,11 +24,12 @@ export class EntryPopupComponent implements OnInit{
       setTimeout(() => {
         this.isVisible = false;
         this.popupService.setPopupShown();
-      }, 12000);
+      }, 1200000);
     }
   }
 
   closePopup(): void {
     this.isVisible = false;
+    this.popupService.setPopupShown();
   }
 }

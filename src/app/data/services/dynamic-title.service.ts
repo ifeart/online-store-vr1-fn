@@ -9,8 +9,8 @@ export class DynamicTitleService {
 
   setTitle(title: string | null): void {
     if (title) {
-      this.titleService.setTitle(`${title} • FNDRS`);
-    } else this.titleService.setTitle('FNDRS');
+      this.titleService.setTitle(`${title} • ife`);
+    } else this.titleService.setTitle('ife');
   }
 
   setNewTitle(title: string): void {

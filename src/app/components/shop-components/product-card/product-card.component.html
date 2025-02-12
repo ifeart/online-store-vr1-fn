@@ -1,6 +1,6 @@
 @if (product) {
   <div class="product-card no-us-copy">
-    <a class="no-dec-link" [href]="product.id_product | productUrl">
+    <a class="no-dec-link" [routerLink]="product.id_product | productUrl">
       <div class="image-product">
         <img class="image-product"
               (mouseenter)="onMouseEnter()"

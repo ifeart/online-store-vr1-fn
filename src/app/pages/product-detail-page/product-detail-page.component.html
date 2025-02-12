@@ -1,8 +1,40 @@
 @if (product) {
+    <div class="product-main-block center-container">
+        <div class="images-product">
+            <img [src]="product.images_list_product[0] | imgUrl" alt="">
+        </div>
+        <div class="info-product">
+            <h1 class="h1">{{  product.name_product  }}</h1>
+            <div class="price-block">
+                @if (product.discount) {
+                    <span class="price">{{  product.price_product | priceDiscount : product.discount  }}₽</span>
+                    <span class="old-price">{{  product.price_product  }}₽</span>
+                    <div class="discount">{{  product.discount  }}</div>
+                } @else {
+                    <span class="price">{{  product.price_product  }}₽</span>
+                }
+            </div>
+            <span class="desription default-text">{{  product.description_product  }}</span>
+            @if (productSizes) {
+                <span class="desription default-text">Выберите размер:</span>
+                <app-size-btn [productTypes]="productSizes" (sizeSelected)="onSizeSelected($event)"></app-size-btn>
+                <span class="article description default-text">Артикул: {{  productSelectedSize?.article || productSizes[0].article  }}</span>
+            }
+        </div>
+    </div>
+} @else if (!product) {
+    <div class="product-main-div-error no-us-copy change-all-hover">
+        Страницы товара не существует
+        <br>
+        или произошла ошибка на сервере
+    </div>
+}
+
+@if (product) {
     <div class="product-main-div">
         <div class="main-img-product-col prod-page-col">
-        <img class="main-img-prod-page-col" [src]="product.images_list_product[0] | imgUrl" 
-                [alt]="product.id_product">
+            <img class="main-img-prod-page-col" [src]="product.images_list_product[0] | imgUrl" 
+            [alt]="product.id_product">
         </div>
         <div class="info-product-col">
             <h1>{{  product.name_product  }}</h1>
@@ -15,10 +47,16 @@
             <app-add-product-btn></app-add-product-btn>
         </div>
     </div>
-} @else if (productNotFound) {
-    <div class="product-main-div-error no-us-copy change-all-hover">
-        Страницы товара не существует
-        <br>
-        или произошла ошибка на сервере
-    </div>
 }
+<img style="width:'100px'" src="/assets/icons/add-func.png" alt="">
+
+
+
+
+
+
+
+
+
+
+

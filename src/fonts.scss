@@ -1,0 +1,450 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: 'Onest';
+  src: url('/assets/fonts/onest/Onest-ExtraLight.woff2') format('woff2'),
+      url('/assets/fonts/onest/Onest-ExtraLight.woff') format('woff'),
+      url('/assets/fonts/onest/Onest-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Onest';
+  src: url('/assets/fonts/onest/Onest-ExtraBold.woff2') format('woff2'),
+      url('/assets/fonts/onest/Onest-ExtraBold.woff') format('woff'),
+      url('/assets/fonts/onest/Onest-ExtraBold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Onest';
+  src: url('/assets/fonts/onest/Onest-SemiBold.woff2') format('woff2'),
+      url('/assets/fonts/onest/Onest-SemiBold.woff') format('woff'),
+      url('/assets/fonts/onest/Onest-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Onest';
+  src: url('/assets/fonts/onest/Onest-Regular.woff2') format('woff2'),
+      url('/assets/fonts/onest/Onest-Regular.woff') format('woff'),
+      url('/assets/fonts/onest/Onest-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Onest';
+  src: url('/assets/fonts/onest/Onest-Thin.woff2') format('woff2'),
+      url('/assets/fonts/onest/Onest-Thin.woff') format('woff'),
+      url('/assets/fonts/onest/Onest-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Onest';
+  src: url('/assets/fonts/onest/Onest-Black.woff2') format('woff2'),
+      url('/assets/fonts/onest/Onest-Black.woff') format('woff'),
+      url('/assets/fonts/onest/Onest-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Onest';
+  src: url('/assets/fonts/onest/Onest-Medium.woff2') format('woff2'),
+      url('/assets/fonts/onest/Onest-Medium.woff') format('woff'),
+      url('/assets/fonts/onest/Onest-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Onest';
+  src: url('/assets/fonts/onest/Onest-Light.woff2') format('woff2'),
+      url('/assets/fonts/onest/Onest-Light.woff') format('woff'),
+      url('/assets/fonts/onest/Onest-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Onest';
+  src: url('/assets/fonts/onest/Onest-Bold.woff2') format('woff2'),
+      url('/assets/fonts/onest/Onest-Bold.woff') format('woff'),
+      url('/assets/fonts/onest/Onest-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+@font-face {
+  font-family: 'Helvetica Neue Cyr';
+  src: url('/assets/fonts/helvetica-neue/HelveticaNeueCyr-Thin.woff2') format('woff2'),
+    url('/assets/fonts/helvetica-neue/HelveticaNeueCyr-Thin.woff') format('woff'),
+    url('/assets/fonts/helvetica-neue/HelveticaNeueCyr-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue Cyr';
+  src: url('/assets/fonts/helvetica-neue/HelveticaNeueCyr-UltraLight.woff2') format('woff2'),
+    url('/assets/fonts/helvetica-neue/HelveticaNeueCyr-UltraLight.woff') format('woff'),
+    url('/assets/fonts/helvetica-neue/HelveticaNeueCyr-UltraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue Cyr';
+  src: url('/assets/fonts/helvetica-neue/HelveticaNeueCyr-Roman.woff2') format('woff2'),
+    url('/assets/fonts/helvetica-neue/HelveticaNeueCyr-Roman.woff') format('woff'),
+    url('/assets/fonts/helvetica-neue/HelveticaNeueCyr-Roman.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue Cyr', 'Helvetica Neue Bold';
+  src: url('/assets/fonts/helvetica-neue/HelveticaNeueCyr-Black.woff2') format('woff2'),
+    url('/assets/fonts/helvetica-neue/HelveticaNeueCyr-Black.woff') format('woff'),
+    url('/assets/fonts/helvetica-neue/HelveticaNeueCyr-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue Cyr';
+  src: url('/assets/fonts/helvetica-neue/HelveticaNeueCyr-UltraLightItalic.woff2') format('woff2'),
+    url('/assets/fonts/helvetica-neue/HelveticaNeueCyr-UltraLightItalic.woff') format('woff'),
+    url('/assets/fonts/helvetica-neue/HelveticaNeueCyr-UltraLightItalic.ttf') format('truetype');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Futura';
+  font-style: normal;
+  font-weight: 100;
+  src: url('/assets/fonts/futura/FuturaLight.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Futura';
+  font-style: normal;
+  font-weight: 200;
+  src: url('/assets/fonts/futura/FuturaBook.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Futura';
+  font-style: normal;
+  font-weight: 300;
+  src: url('/assets/fonts/futura/FuturaMedium.woff') format('woff');
+}
+  
+
+@font-face {
+  font-family: 'Futura';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/assets/fonts/futura/FuturaDemi.woff') format('woff');
+}
+  
+
+@font-face {
+  font-family: 'Futura';
+  font-style: normal;
+  font-weight: 500;
+  src: url('/assets/fonts/futura/FuturaHeavy.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Futura';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/assets/fonts/futura/FuturaBold.woff') format('woff');
+}
+  
+
+@font-face {
+  font-family: 'Futura';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/assets/fonts/futura/FuturaExtraBold.woff') format('woff');
+}
+
+
+/* НИЖЕ ШРИФТЫ АНГЛОЯЗЫЧНЫЕ*/
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/assets/fonts/satoshi/Satoshi-Light.woff2') format('woff2'),
+    url('/assets/fonts/satoshi/Satoshi-Light.woff') format('woff'),
+    url('/assets/fonts/satoshi/Satoshi-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/assets/fonts/satoshi/Satoshi-LightItalic.woff2') format('woff2'),
+    url('/assets/fonts/satoshi/Satoshi-LightItalic.woff') format('woff'),
+    url('/assets/fonts/satoshi/Satoshi-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/assets/fonts/satoshi/Satoshi-Regular.woff2') format('woff2'),
+    url('/assets/fonts/satoshi/Satoshi-Regular.woff') format('woff'),
+    url('/assets/fonts/satoshi/Satoshi-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/assets/fonts/satoshi/Satoshi-Italic.woff2') format('woff2'),
+    url('/assets/fonts/satoshi/Satoshi-Italic.woff') format('woff'),
+    url('/assets/fonts/satoshi/Satoshi-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/assets/fonts/satoshi/Satoshi-Medium.woff2') format('woff2'),
+    url('/assets/fonts/satoshi/Satoshi-Medium.woff') format('woff'),
+    url('/assets/fonts/satoshi/Satoshi-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/assets/fonts/satoshi/Satoshi-MediumItalic.woff2') format('woff2'),
+    url('/assets/fonts/satoshi/Satoshi-MediumItalic.woff') format('woff'),
+    url('/assets/fonts/satoshi/Satoshi-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/assets/fonts/satoshi/Satoshi-Bold.woff2') format('woff2'),
+    url('/assets/fonts/satoshi/Satoshi-Bold.woff') format('woff'),
+    url('/assets/fonts/satoshi/Satoshi-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/assets/fonts/satoshi/Satoshi-BoldItalic.woff2') format('woff2'),
+    url('/assets/fonts/satoshi/Satoshi-BoldItalic.woff') format('woff'),
+    url('/assets/fonts/satoshi/Satoshi-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/assets/fonts/satoshi/Satoshi-Black.woff2') format('woff2'),
+    url('/assets/fonts/satoshi/Satoshi-Black.woff') format('woff'),
+    url('/assets/fonts/satoshi/Satoshi-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/assets/fonts/satoshi/Satoshi-BlackItalic.woff2') format('woff2'),
+    url('/assets/fonts/satoshi/Satoshi-BlackItalic.woff') format('woff'),
+    url('/assets/fonts/satoshi/Satoshi-BlackItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-display: swap;
+  font-style: italic;
+}
+/**
+* This is a variable font
+* You can control variable axes as shown below:
+* font-variation-settings: wght 900.0;
+*
+* available axes:
+'wght' (range from 300.0 to 900.0
+*/
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/assets/fonts/satoshi/Satoshi-Variable.woff2') format('woff2'),
+    url('/assets/fonts/satoshi/Satoshi-Variable.woff') format('woff'),
+    url('/assets/fonts/satoshi/Satoshi-Variable.ttf') format('truetype');
+  font-weight: 300 900;
+  font-display: swap;
+  font-style: normal;
+}
+/**
+* This is a variable font
+* You can control variable axes as shown below:
+* font-variation-settings: wght 900.0;
+*
+* available axes:
+'wght' (range from 300.0 to 900.0
+*/
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/assets/fonts/satoshi/Satoshi-VariableItalic.woff2') format('woff2'),
+    url('/assets/fonts/satoshi/Satoshi-VariableItalic.woff') format('woff'),
+    url('/assets/fonts/satoshi/Satoshi-VariableItalic.ttf') format('truetype');
+  font-weight: 300 900;
+  font-display: swap;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/assets/fonts/plus-jakarta-sans/PlusJakartaSans-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/assets/fonts/plus-jakarta-sans/PlusJakartaSans-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/assets/fonts/plus-jakarta-sans/PlusJakartaSans-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/assets/fonts/plus-jakarta-sans/PlusJakartaSans-ExtraBold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/assets/fonts/plus-jakarta-sans/PlusJakartaSans-ExtraBoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/assets/fonts/plus-jakarta-sans/PlusJakartaSans-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/assets/fonts/plus-jakarta-sans/PlusJakartaSans-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/assets/fonts/plus-jakarta-sans/PlusJakartaSans-ExtraLightItalic.ttf') format('truetype');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/assets/fonts/plus-jakarta-sans/PlusJakartaSans-Italic_1.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/assets/fonts/plus-jakarta-sans/PlusJakartaSans-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/assets/fonts/plus-jakarta-sans/PlusJakartaSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/assets/fonts/plus-jakarta-sans/PlusJakartaSans-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/assets/fonts/plus-jakarta-sans/PlusJakartaSans-SemiBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/assets/fonts/plus-jakarta-sans/PlusJakartaSans-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/assets/fonts/plus-jakarta-sans/PlusJakartaSans-Regular_1.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/assets/fonts/plus-jakarta-sans/PlusJakartaSans-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}

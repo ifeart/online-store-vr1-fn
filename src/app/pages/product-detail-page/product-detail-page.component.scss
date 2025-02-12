@@ -1,3 +1,89 @@
+.product-main-div-error {
+    margin: auto;
+    border: 2px solid white;
+    border-radius: 15px;
+    padding: 20px;
+    padding-top: 15px;
+    width: fit-content;
+    font-size: larger;
+    text-transform: lowercase;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+.product-main-div-error:hover {
+    background-color: white;
+    border-color: black;
+    color: black;
+}
+
+.product-main-block {
+    margin-top: 40px;
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1240px;
+}
+
+
+.images-product {
+    border-radius: 20px;
+    display: flex;
+    // max-width: 530px;
+    max-width: 600px;
+}
+
+.info-product {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.price-block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center; 
+    gap: 12px;
+    font-family: 'Futura', sans-serif;
+    font-size: 32px;
+    font-weight: 200;
+    line-height: 42px;
+}
+
+.price {
+    color: black;
+}
+
+.old-price {
+    color: rgba(0, 0, 0, 0.3);
+    text-decoration: line-through;
+}
+
+.discount {
+    color: rgb(255, 51, 51);
+    font-size: 16px;
+    line-height: 22px;
+    padding: 6px 14px;
+    border-radius: 62px;
+    background: rgba(255, 51, 51, 0.1);
+    width: 44px;
+    height: 22px;
+}
+
+.desription {
+    max-width: 590px;
+}
+
+.article {
+    font-size: 16px;
+}
+
+
 .product-main-div {
     display: flex;
     flex-wrap: wrap;
@@ -50,23 +136,3 @@ img {
 // }
 
 
-.product-main-div-error {
-    margin: auto;
-    border: 2px solid white;
-    border-radius: 15px;
-    padding: 20px;
-    padding-top: 15px;
-    width: fit-content;
-    font-size: larger;
-    text-transform: lowercase;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    text-align: center;
-    background-color: black;
-    color: white;
-}
-
-.product-main-div-error:hover {
-    background-color: white;
-    border-color: black;
-    color: black;
-}

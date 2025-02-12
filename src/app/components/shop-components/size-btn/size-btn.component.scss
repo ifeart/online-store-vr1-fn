@@ -1,7 +1,6 @@
 .product-type-radio-form {
     display: flex;
     gap: 10px;
-    margin: 10px;
 }
 
 .product-type-radio-btn input[type="radio"] {
@@ -18,12 +17,14 @@
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-weight: bold;
     font-size: 14px;
     color: black;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Futura', sans-serif;
+    font-weight: 100;
+    font-family: 'Helvetica Neue', sans-serif;
     font-weight: 200;
     background-color: #fff;
+    user-select: none;
 }
 
 .product-type-radio-btn input[type="radio"]:checked + label {

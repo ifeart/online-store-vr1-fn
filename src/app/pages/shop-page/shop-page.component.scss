@@ -4,6 +4,8 @@
     gap: 20px;
     justify-content: center;
     padding: 20px;
+    margin: 0 auto;
+    max-width: 1300px;
 }
 
 @media (min-width: 600px) {
@@ -15,11 +17,13 @@
 @media (min-width: 1050px) {
     .product-grid {
         grid-template-columns: repeat(3, 1fr);
+        // grid-template-columns: repeat(4, 1fr);
     }
 }
   
 @media (min-width: 1450px) {
     .product-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        // grid-template-columns: repeat(4, 1fr);
     }
 }

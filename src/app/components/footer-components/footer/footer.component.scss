@@ -1,3 +1,70 @@
+.footer {
+    margin-top: 150px;
+    position: relative;
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: var(--light-gray);
+}
+
+.footer-container {
+    max-width: 1240px;
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-form {
+    position: relative;
+    bottom: 90px;
+}
+
+.companies-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    padding-bottom: 82px;
+    border-top: 1px solid var(--line-gray);
+
+}
+
+.payment-companies {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 12px;
+}
+
+.payment-logo {
+    width: 46.61px;
+    height: 30.03px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.22px solid rgb(214, 220, 229);
+    border-radius: 5.38px;
+    box-shadow: 0px 0.45px 4.48px 0px rgba(183, 183, 183, 0.08),0px 4.48px 8.96px 0px rgba(183, 183, 183, 0.08);
+    background: rgb(255, 255, 255);
+}
+
+@media (max-width: 1040px) {
+    .footer-form {
+        bottom: 145px;
+    }
+    
+}
+
+@media (max-width: 630px) {
+    .companies-info {
+        flex-direction: column;
+        gap: 16px;
+    }
+}
+
+
+
+
+
 .footer-border-line {
     border-top: 1px solid #EEEEEE;
     width: 100%;

@@ -7,7 +7,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class ProductUrlPipe implements PipeTransform {
 
   transform(value: string | null): string {
-    if (!value) return `product/`;
-    return `product/${value}`;
+    if (!value) return `/product/`;
+    return `/product/${value}`;
   }
 }

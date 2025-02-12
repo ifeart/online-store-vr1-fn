@@ -1,3 +1,249 @@
+.main-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: #f2f0f1;
+    flex-wrap: wrap;
+}
+
+.main-text-block {
+    display: flex;
+    width: 660px;
+    height: 660px;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.h1-main {
+    font-size: 64px;
+    line-height: 64px;
+}
+
+.main-text {
+    margin-top: 32px;
+}
+
+.big-black-btn {
+    padding: 16px 54px;
+    color: white;
+    background-color: black;
+    font-family: 'Futura', sans-serif;
+    font-weight: 400;
+    border-radius: 65px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 75px;
+    height: 20px;
+    margin-top: 32px;
+    margin-bottom: 48px;
+}
+
+.statistics-info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+}
+
+.block-statistic {
+    padding-left: 36px;
+    padding-right: 36px;
+    box-sizing: border-box;
+}
+
+.bs-2-border, .bs-3-border {
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.number-statistic {
+    color: black;
+    font-size: 40px;
+    line-height: 54px;
+    font-family: 'Futura', sans-serif;
+    font-weight: 500;
+}
+
+.text-statistic {
+    color: black;
+    font-family: 'Futura', sans-serif;
+    font-weight: 100;
+    font-size: 18px;
+}
+
+.main-image-block {
+    position: relative;
+    width: 660px;
+    height: 660px;
+    font-size: 0;
+}
+
+.main-image {
+    height: 100%;
+    display: block;
+}
+
+.star-on-image-1 {
+    position: absolute;
+    top: 297px;
+    left: 20px;
+    width: 56px; 
+    height: auto;
+}
+
+.star-on-image-2 {
+    position: absolute;
+    top: 86px;
+    right: 60px;
+    width: 104px;
+    height: auto; 
+}
+
+@media (max-width: 660px) {
+    .big-black-btn {
+        padding: 16px 54px;
+        margin: 20px  16px;
+        width: 55%;
+    }
+
+    .main-text-block, .main-image-block, .main-image {
+        align-items: center;
+        width: 100%;
+        height: auto;
+    }
+
+    .h1-main {
+        margin-top: 40px;
+    }
+
+    .h1-main, .main-text {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    
+    .star-on-image-1 {
+        width: 44px;
+        top: 137px;
+        left: 27px;
+    }
+    
+    .star-on-image-2 {
+        width: 76px;
+        top: 40px;
+        right: 21px;
+    }
+    
+    .statistics-info {
+        flex-wrap: wrap;
+    }
+    
+    .bs-3-border {
+        padding-top: 12px;
+        border: none;
+    }
+}
+
+@media (max-width:548px) {
+    .statistics-info {
+        flex-direction: column;
+        align-items: flex-start;
+
+    }
+
+    .bs-2-border {
+        padding-top: 12px;
+        border: none;
+    }
+}
+
+.brand-background-line {
+    height: 122px;
+    margin-bottom: 72px;
+    background-color: black;
+}
+
+.brands-line {
+    max-width: 1240px;
+    margin-left: auto;
+    margin-right: auto;
+    // width: 100%;
+    height: 122px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+    justify-content: space-between;
+    justify-items: center;
+}
+
+
+
+.versage-logo {
+    height: 34px;
+    width: 167px;
+}
+
+.gucci-logo {
+    height: 33px;
+    width: 156px;
+}
+
+.zara-logo {
+    height: 38px;
+    width: auto;
+}
+
+.prada-logo {
+    height: 32px;
+    width: 194px;
+}
+
+.ck-logo {
+    height: 34px;
+    width: 207px;
+}
+
+@media (max-width: 840px) {
+    .brand-background-line {
+        height: fit-content;
+    }
+    
+    .brands-line {
+        padding: 10px;
+        max-width: 90%;
+        height: fit-content;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        align-content: center;
+        flex-direction: row;
+        justify-content: center;
+        justify-items: center;
+        gap: 24px;
+    }
+
+    .svg-brand-logo {
+        max-height: 24px;
+        max-width: fit-content;
+    }
+}
+
+.brand-logo {
+    color: white;
+}
+
+@media (max-width: 745px) {
+    .brands-line {
+        width: 495px;
+    }
+}
+
+
+
 .main-image-list {
     display: flex;
     justify-content: center;
@@ -35,6 +281,7 @@
     color: #fff;
     font-size: 2vw;
     text-align: center;
+
 }
 
 .link-main-image {

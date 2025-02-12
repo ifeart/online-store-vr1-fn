@@ -15,56 +15,58 @@ templateUrl: './category-page.component.html',
 styleUrl: './category-page.component.scss'
 })
 export class CategoryPageComponent implements OnInit {
-productCards: ProductCards[] = [];
-categoriesProducts: CategoriesProducts[] = [];
-categorySlug: string | null = '';
-categoryName: CategoriesProducts | undefined;
+  productCards: ProductCards[] = [];
+  categoriesProducts: CategoriesProducts[] = [];
+  categorySlug: string | null = '';
+  categoryName: CategoriesProducts | undefined;
 
-constructor (
-  private route: ActivatedRoute,
-  private productCardsService: ProductCardsService,
-  private dynamicTitleService: DynamicTitleService,
-  private categoriesProductsService: CategoriesProductsService
-) {
-}
-
-ngOnInit(): void {
-  this.categorySlug = this.route.snapshot.paramMap.get('id_category');
-  
-  if (this.categorySlug) {
-    this.fetchCategoriesProducts();
-    this.fetchProductCards();
+  constructor (
+    private route: ActivatedRoute,
+    private productCardsService: ProductCardsService,
+    private dynamicTitleService: DynamicTitleService,
+    private categoriesProductsService: CategoriesProductsService
+  ) {
   }
-}
 
-private fetchCategoriesProducts(): void {
-  this.categoriesProductsService.getCategoriesProducts().subscribe({
-    next: (data) => {
-      this.categoryName = data.find(item => item.slug_category === this.categorySlug);
-      if (this.categoryName) {
-        this.dynamicTitleService.setTitle(this.categoryName.name_category);
+  ngOnInit(): void {
+    this.categorySlug = this.route.snapshot.paramMap.get('id_category');
+    this.route.paramMap.subscribe(params => {
+      this.categorySlug = params.get('id_category'); // Получаем новый slug
+      if (this.categorySlug) {
+        this.fetchCategoriesProducts(); // Обновляем данные категории
+        this.fetchProductCards(); // Обновляем данные товаров
       }
-    },
-    error: (err) => {
-      // console.error('Error fetching categories products:', err);
-    },
-    complete: () => {
-      // console.log('Categories products fetching completed');
-    }
-  });
-}
+    });
+  }
 
-private fetchProductCards(): void {
-  this.productCardsService.getProductCardsCategory(this.categorySlug).subscribe({
-    next: (val) => {
-      this.productCards = val;
-    },
-    error: (err) => {
-      // console.error('Error fetching product cards:', err);
-    },
-    complete: () => {
-      // console.log('Product cards fetching completed'); 
-    }
-  });
-}
+  private fetchCategoriesProducts(): void {
+    this.categoriesProductsService.getCategoriesProducts().subscribe({
+      next: (data) => {
+        this.categoryName = data.find(item => item.slug_category === this.categorySlug);
+        if (this.categoryName) {
+          this.dynamicTitleService.setTitle(this.categoryName.name_category);
+        }
+      },
+      error: (err) => {
+        // console.error('Error fetching categories products:', err);
+      },
+      complete: () => {
+        // console.log('Categories products fetching completed');
+      }
+    });
+  }
+
+  private fetchProductCards(): void {
+    this.productCardsService.getProductCardsCategory(this.categorySlug).subscribe({
+      next: (val) => {
+        this.productCards = val;
+      },
+      error: (err) => {
+        // console.error('Error fetching product cards:', err);
+      },
+      complete: () => {
+        // console.log('Product cards fetching completed'); 
+      }
+    });
+  }
 }
