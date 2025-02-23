@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../../auth/auth.service';
+import { AccountService } from '../../../data/services/account.service';
 
 @Component({
   selector: 'app-sub-to-news-form',
@@ -11,6 +12,7 @@ import { AuthService } from '../../../auth/auth.service';
 })
 export class SubToNewsFormComponent implements OnInit {
   authService =  inject(AuthService);
+  accountService = inject(AccountService);
   subscribedToNews: boolean = false;
   
   subToNewsForm: FormGroup = new FormGroup({
@@ -19,15 +21,23 @@ export class SubToNewsFormComponent implements OnInit {
   
   
   ngOnInit(): void {
-    this.authService.getAuthStatus().subscribe((status) => {
-      this.subscribedToNews = !status;
-    });
+    this.subscribedToNews = localStorage.getItem('subscribedToNews') === 'true';
+    if (!this.subscribedToNews) {
+      this.authService.getAuthStatus().subscribe((status) => {
+        this.subscribedToNews = !!status;
+        if (this.subscribedToNews) {
+          this.accountService.getAccount().subscribe((account) => {
+            this.subscribedToNews = account.email_subscription_news;
+          });
+        }
+      });
+    }
   }
 
   onSubmit() {
     if (this.subToNewsForm.valid) {
-      console.log(this.subToNewsForm.value.email);
-      this.subscribedToNews = true;
+      this.accountService.subscribeEmailToNews(this.subToNewsForm.value.email);
+      localStorage.setItem('subscribedToNews', 'true');
     }
   }
 }

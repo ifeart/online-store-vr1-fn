@@ -26,4 +26,8 @@ export class AccountService {
   }): Observable<any> {
     return this.http.put(`${this.baseApiUrl.AccountApiUrl}`, payload);
   }
+
+  subscribeEmailToNews(email: string): void {
+    this.http.post(`${this.baseApiUrl.EmailToSubscribeApiUrl}`, { email }).subscribe();
+  }
 }

@@ -1,2 +1,94 @@
-<p>cart-page works!</p>
-{{  cartService.getCartCount()  }}
+<h1 class="h1 cart-heading">Корзина</h1>
+@if (cartCount > 0) {
+
+    <div class="cart-container">
+        <div class="cart-block cart-items-block">
+            @for (item of cartItems; track item.id) {
+                <div class="cart-item">
+                    <img class="cart-item-image" width="125" height="125" [src]="item.image | imgUrl" [alt]="item.name">
+                    <div class="cart-item-info-block">
+                        <div class="cart-item-info">
+                            <div class="cart-item-info-text">
+                                <a 
+                                    class="no-dec-link"
+                                    [routerLink]="item.id_product | productUrl">
+                                    <span class="main-p-info">{{  item.name  }}</span>
+                                </a>
+                                <span 
+                                    class="cart-item-parameter-key">
+                                    Артикул: 
+                                    <span class="cart-item-parameter-value">
+                                        {{ item.article }}
+                                    </span>
+                                </span>
+                                <span 
+                                    class="cart-item-parameter-key">
+                                    Размер: 
+                                    <span class="cart-item-parameter-value">
+                                        {{ item.size }}
+                                    </span>
+                                </span>
+                            </div>
+                            <span class="cart-item-price">{{  item.price  }}₽</span>
+                        </div>
+                        <div class="cart-item-btns">
+                            <button 
+                                (click)="removeItem(item)"
+                                class="remove-item"
+                                title="Удалить из корзины">
+                                <svg width="16.000000" height="19.500000" viewBox="0 0 18 19.5" fill="none">
+                                    <path id="Vector" d="M17.25 3L13.5 3L13.5 2.25C13.5 1.65 13.26 1.08 12.84 0.65C12.41 0.23 11.84 0 11.25 0L6.75 0C6.15 0 5.58 0.23 5.15 0.65C4.73 1.08 4.5 1.65 4.5 2.25L4.5 3L0.75 3C0.55 3 0.36 3.07 0.21 3.21C0.07 3.36 0 3.55 0 3.75C0 3.94 0.07 4.13 0.21 4.28C0.36 4.42 0.55 4.5 0.75 4.5L1.5 4.5L1.5 18C1.5 18.39 1.65 18.77 1.93 19.06C2.22 19.34 2.6 19.5 3 19.5L15 19.5C15.39 19.5 15.77 19.34 16.06 19.06C16.34 18.77 16.5 18.39 16.5 18L16.5 4.5L17.25 4.5C17.44 4.5 17.63 4.42 17.78 4.28C17.92 4.13 18 3.94 18 3.75C18 3.55 17.92 3.36 17.78 3.21C17.63 3.07 17.44 3 17.25 3ZM7.5 14.25C7.5 14.44 7.42 14.63 7.28 14.78C7.13 14.92 6.94 15 6.75 15C6.55 15 6.36 14.92 6.21 14.78C6.07 14.63 6 14.44 6 14.25L6 8.25C6 8.05 6.07 7.86 6.21 7.71C6.36 7.57 6.55 7.5 6.75 7.5C6.94 7.5 7.13 7.57 7.28 7.71C7.42 7.86 7.5 8.05 7.5 8.25L7.5 14.25ZM12 14.25C12 14.44 11.92 14.63 11.78 14.78C11.63 14.92 11.44 15 11.25 15C11.05 15 10.86 14.92 10.71 14.78C10.57 14.63 10.5 14.44 10.5 14.25L10.5 8.25C10.5 8.05 10.57 7.86 10.71 7.71C10.86 7.57 11.05 7.5 11.25 7.5C11.44 7.5 11.63 7.57 11.78 7.71C11.92 7.86 12 8.05 12 8.25L12 14.25ZM12 3L6 3L6 2.25C6 2.05 6.07 1.86 6.21 1.71C6.36 1.57 6.55 1.5 6.75 1.5L11.25 1.5C11.44 1.5 11.63 1.57 11.78 1.71C11.92 1.86 12 2.05 12 2.25L12 3Z" fill="currentColor" fill-opacity="1.000000" fill-rule="nonzero"/>
+                                </svg>
+                            </button>
+                            <app-add-to-cart-btn [productQuantity]="item.quantity"></app-add-to-cart-btn>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="cart-block order-block">
+            <span class="main-p-order">Стоимость заказа</span>
+            <div class="prices-block">
+                <div class="order-flex">
+                    <span class="order-text">Общая стоимость</span>
+                    <span class="order-price">{{  cartFinalPrice  }}₽</span>
+                </div>
+                <div class="order-flex order-discount">
+                    <span class="order-text">Скидка ([-20%])</span>
+                    <span class="order-price">-999₽</span>
+                </div>
+                <div class="order-flex">
+                    <span class="order-text">Стоимость доставки</span>
+                    <span class="order-price">1999₽</span>
+                </div>
+                <div class="order-line"></div>
+                <div class="order-flex order-total">
+                    <span class="order-text">Итого</span>
+                    <span class="order-price">1999₽</span>
+                </div>
+            </div>
+            @if (!promoCodeAdd) {
+                <form 
+                    [formGroup]="promoCodeForm"
+                    class="promocode-form"
+                    (ngSubmit)="checkPromoCode()">
+                </form>
+            }
+            <a 
+                class="go-to-order-btn"
+                routerLink="/order">
+                Оформить заказ
+                <svg width="18.751953" height="15.755798" viewBox="0 0 18.752 15.7558" fill="none">
+                    <path id="Vector" d="M11.67 0.33L18.42 7.08C18.52 7.18 18.6 7.31 18.66 7.44C18.72 7.58 18.75 7.73 18.75 7.87C18.75 8.02 18.72 8.17 18.66 8.31C18.6 8.44 18.52 8.57 18.42 8.67L11.67 15.42C11.45 15.63 11.17 15.75 10.87 15.75C10.57 15.75 10.28 15.63 10.07 15.42C9.86 15.21 9.74 14.92 9.74 14.62C9.74 14.33 9.86 14.04 10.07 13.83L14.9 9L1.12 9C0.82 9 0.54 8.88 0.32 8.67C0.11 8.46 0 8.17 0 7.87C0 7.57 0.11 7.29 0.32 7.08C0.54 6.87 0.82 6.75 1.12 6.75L14.9 6.75L10.07 1.92C9.86 1.71 9.74 1.42 9.74 1.12C9.74 0.82 9.86 0.54 10.07 0.33C10.28 0.11 10.57 0 10.87 0C11.17 0 11.45 0.11 11.66 0.33L11.67 0.33Z" fill="currentColor" fill-opacity="1.000000" fill-rule="nonzero"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+} @else {
+    <div class="message-main-div-error no-us-copy change-all-hover">
+        Ваша коризна пуста
+    </div>
+}
+<!-- <br><br><br>
+
+<button (click)="cartService.clearCart()">clear cart</button> -->

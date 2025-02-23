@@ -20,14 +20,97 @@
     gap: 18px;
 }
 
-.sidebar-btn {
+.sidebar-btn, .toggle-bar-btn {
     display: none;
     background: none;
     border: none;
 }
 
-.sidebar-svg {
+.toggle-bar {
+    width: 18px;
+    height: 13px;
+    position: relative;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    cursor: pointer;
+}
 
+.toggle-bar-line {
+    display: block;
+    position: absolute;
+    height: 1.5px;
+    width: 100%;
+    background: black;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .25s ease-in-out;
+    -moz-transition: .25s ease-in-out;
+    -o-transition: .25s ease-in-out;
+    transition: .25s ease-in-out;
+}
+
+.toggle-bar-top-line {
+    top: 0px;
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    -o-transform-origin: left center;
+    transform-origin: left center;
+}
+
+.toggle-bar-mid-line {
+    top: 6px;
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    -o-transform-origin: left center;
+    transform-origin: left center;
+}
+
+.toggle-bar-bottom-line {
+    top: 12px;
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    -o-transform-origin: left center;
+    transform-origin: left center;
+}
+
+.open {
+    /*  */
+}
+
+.toggle-bar.open .toggle-bar-top-line {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    /* top: -1px; */
+    width: 18px;
+    left: 2px;
+}
+
+.toggle-bar.open .toggle-bar-mid-line {
+    width: 0%;
+    opacity: 0;
+}
+
+.toggle-bar.open .toggle-bar-bottom-line {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    top: 13px;
+    left: 2px;
+    width: 18px;
 }
 
 .link-nav-main {
@@ -96,6 +179,7 @@
 }
 
 .header-account-links {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -106,8 +190,20 @@
     color: black;
 }
 
+.cart-count {
+    position: absolute;
+    top: -9px;
+    right: 28px;
+    background-color: black;
+    border-radius: 25px;
+    color: white;
+    font-size: 10px;
+    font-family: 'Futura', sans-serif;
+    padding: 2px 6px;
+}
+
 @media (max-width: 1100px) {
-    .sidebar-btn {
+    .toggle-bar-btn {
         display: block;
     }
     .header-main {

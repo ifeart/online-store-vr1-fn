@@ -10,7 +10,7 @@ import { ProductTypeIdPipe } from "../../../helpers/pipes/product-type-id.pipe";
   templateUrl: './size-btn.component.html',
   styleUrl: './size-btn.component.scss'
 })
-export class SizeBtnComponent {
+export class SizeBtnComponent implements OnInit {
   @Input() productTypes!: ProductSizes[];
   @Output() sizeSelected = new EventEmitter<ProductSizes>();
   sizeForm!: FormGroup;

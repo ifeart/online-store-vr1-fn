@@ -9,7 +9,7 @@
             [id]="productType.id | productTypeId" 
             name="selectedSize" 
             [value]="productType"
-            [checked]="$first"
+            [checked]="$last"
             formControlName="selectedSize"
             >
             <label for="{{  productType.id | productTypeId  }}">

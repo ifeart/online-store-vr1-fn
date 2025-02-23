@@ -1,9 +1,10 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CategoriesProductsService } from '../../../data/services/categories-products.service';
 import { CategoriesProducts } from '../../../data/interfaces/categories-products.interfaces';
 import { CategoryUrlPipe } from "../../../helpers/pipes/category-url.pipe";
 import { RouterLink } from '@angular/router';
 import { SidebarService } from '../../../data/services/sidebar.service';
+import { CartService } from '../../../cart/cart.service';
 
 
 @Component({
@@ -16,12 +17,15 @@ import { SidebarService } from '../../../data/services/sidebar.service';
 export class HeaderComponent {
   categoriesProducts: CategoriesProducts[] | null = null;
   categoriesProductsService = inject(CategoriesProductsService);
+  cartService = inject(CartService);
   sidebarService = inject(SidebarService);
 
-  // mg delet THIS
+  cartCount: number = 0;
+
+  // mb delete THIS
   items: any[] = [];
   isMobile: boolean = false;
-  sidebarVisible: boolean = false;
+  sidebarVisible = signal<boolean>(false);
 
 
 
@@ -30,6 +34,9 @@ export class HeaderComponent {
       this.categoriesProducts = val;
     });
 
+    this.cartService.getCartCount$().subscribe(
+      val => this.cartCount = val
+    );
   
     this.items = [
       { label: 'Каталог', routerLink: '/shop' },
@@ -40,5 +47,6 @@ export class HeaderComponent {
 
   toggleSideBar(): void {
     this.sidebarService.toggleSidebar();
+    this.sidebarVisible.set(!this.sidebarVisible());
   }
 }

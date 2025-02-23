@@ -1,94 +1,87 @@
-@if (profile) {
-    <h1 class="h1">Мой аккаунт</h1>
-    <h2 class="h2-account">Персональные данные</h2>
-    Почта:
-    {{  profile.email  }}
-    <br>
-    Номер телефона:
-    {{  profile.phone_number  }}
-    <br>
-    Присылать мне акции и новости по email
-    <!-- <input type="checkbox" [checked]="isEmailNewsSubscription()"> -->
+<div class="account-container">
+    @if (profile) {
+        <h1 class="h1">Настройки вашей учетной записи</h1>
+        <form class="profile-form"
+            [formGroup]="profileForm"
+            (ngSubmit)="onSubmit()">
+            <div class="account-setting-block">
+                <div class="account-block-1">
+                    <span class="account-block-heading">Персональные данные</span>
+                    <label class="account-setting-label">
+                        Имя
+                        <input 
+                            class="account-setting-input"
+                            placeholder="Введите имя"
+                            formControlName="first_name">
+                    </label>
+                    <label class="account-setting-label">
+                        Фамилия
+                        <input 
+                            class="account-setting-input"
+                            type="text"
+                            placeholder="Введите фамилию"
+                            formControlName="last_name">
+                    </label>
+                    <label class="account-setting-label">
+                        Отчество
+                        <input 
+                            class="account-setting-input"
+                            type="text"
+                            placeholder="Введите отчество"
+                            formControlName="patronymic">
+                    </label>
+                </div>
+                <div class="account-block-2">
+                    <label class="account-setting-label">
+                        Электронная почта
+                        <input 
+                            class="account-setting-input"
+                            type="email"
+                            placeholder="Введите адрес электронной почты"
+                            formControlName="email"
+                            [value]="profile.email">
+                    </label>
+                    <label class="account-setting-label">
+                        Номер телефона
+                        <input 
+                            class="account-setting-input"
+                            type="tel"
+                            placeholder="Введите номер телефона"
+                            formControlName="phone_number">
+                    </label>
+                </div>
+            </div>
 
-    <br><br><br>
-    <h1 class="h1">Настройки вашей учетной записи</h1>
-    <form class="profile-form"
-        [formGroup]="profileForm"
-        (ngSubmit)="onSubmit()">
-        <label class="account-setting-label">
-            Электронная почта
-            <input 
-                class="account-setting-input"
-                type="email"
-                placeholder="Введите адрес электронной почты"
-                formControlName="email"
-                [value]="profile.email">
-        </label>
-        <label class="account-setting-label">
-            Номер телефона
-            <input 
-                class="account-setting-input"
-                type="tel"
-                placeholder="Введите номер телефона"
-                formControlName="phone_number">
-        </label>
-        <label class="account-setting-label">
-            Имя
-            <input 
-                class="account-setting-input"
-                placeholder="Введите имя"
-                formControlName="first_name">
-        </label>
-        <label class="account-setting-label">
-            Фамилия
-            <input 
-                class="account-setting-input"
-                type="text"
-                placeholder="Введите фамилию"
-                formControlName="last_name">
-        </label>
-        <label class="account-setting-label">
-            Отчество
-            <input 
-                class="account-setting-input"
-                type="text"
-                placeholder="Введите отчество"
-                formControlName="patronymic">
-        </label>
-        <label class="account-setting-label">
-            Страна
-            <input 
-                class="account-setting-input"
-                type="text"
-                placeholder="Введите страну"
-                formControlName="country">
-        </label>
-        <label class="account-setting-label">
-            Полный адрес
-            <input 
-                class="account-setting-input"
-                type="text"
-                placeholder="Введите полный адрес"
-                formControlName="full_address">
-        </label>
-        <!-- <label class="account-setting-label">
-            Подписка на акции и новости
-            <input 
-                class="account-setting-input"
-                type="checkbox"
-                formControlName="email_subscription_news">
-        </label> -->
-        <div class="account-setting-label">
-            Подписка на акции и новости
-            <label class="switch">
-              <input 
-                type="checkbox" 
-                formControlName="email_subscription_news">
-              <span class="slider round-switch"></span>
-            </label>
-          </div>
-        <button class="account-setting-button" type="submit">Сохранить</button>
-    </form>
-}
-
-<button (click)="logout()">Выйти</button>
+            <div class="account-setting-block">
+                <label class="account-setting-label">
+                    Страна
+                    <input 
+                        class="account-setting-input"
+                        type="text"
+                        placeholder="Введите страну"
+                        formControlName="country">
+                </label>
+                <label class="account-setting-label">
+                    Полный адрес
+                    <input 
+                        class="account-setting-input"
+                        type="text"
+                        placeholder="Введите полный адрес"
+                        formControlName="full_address">
+                </label>
+                <div class="account-setting-label">
+                    Подписка на акции и новости
+                    <label class="switch">
+                    <input 
+                        class="switch-input"
+                        type="checkbox"
+                        formControlName="email_subscription_news">
+                    <span class="slider round-switch"></span>
+                    </label>
+                </div>
+            </div>
+            <button class="account-setting-button" type="submit">Сохранить</button>
+        </form>
+    }
+    <button (click)="logout()">Выйти</button>
+</div>
