@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { CartItem } from './cart-item.interface';
-import { BehaviorSubject, map, Observable, switchMap, tap } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../auth/auth.service';
 import { AllUrls } from '../data/enums/all-urls.enum';

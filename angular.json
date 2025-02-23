@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "fndrs": {
+    "ife": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -39,7 +39,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/fndrs",
+            "outputPath": "dist/ife",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -86,10 +86,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "fndrs:build:production"
+              "buildTarget": "ife:build:production"
             },
             "development": {
-              "buildTarget": "fndrs:build:development"
+              "buildTarget": "ife:build:development"
             }
           },
           "defaultConfiguration": "development"
