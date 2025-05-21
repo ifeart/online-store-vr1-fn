@@ -1,11 +1,12 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DynamicTitleService {
-  constructor(private titleService: Title, private metaService: Meta) {}
+  private titleService = inject(Title); 
+  private metaService = inject(Meta);
 
   setTitle(title: string | null): void {
     if (title) {
@@ -20,7 +21,6 @@ export class DynamicTitleService {
   setMetaTags(description: string, keywords: string): void {
     this.metaService.updateTag({ name: 'description', content: description });
     this.metaService.updateTag({ name: 'keywords', content: keywords });
-    
   }
 
   setMetaData(title: string, description: string, keywords: string): void {

@@ -2,6 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { AuthService } from '../../auth/auth.service';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { DynamicTitleService } from '../../data/services/dynamic-title.service';
 
 
 @Component({
@@ -12,6 +13,7 @@ import { Router } from '@angular/router';
   styleUrl: './signup-page.component.scss'
 })
 export class SignupPageComponent {
+  dynamicTitleService = inject(DynamicTitleService);
   authService = inject(AuthService);
   router = inject(Router);
 
@@ -22,6 +24,10 @@ export class SignupPageComponent {
     phone_number: new FormControl(null, Validators.required),
     password: new FormControl(null, Validators.required)
   })
+
+  ngOnInit(): void {
+    this.dynamicTitleService.setNewTitle('Регистрация в ife.SHOP');
+  }
 
   onSubmit() {
     if (this.signupForm.valid) {

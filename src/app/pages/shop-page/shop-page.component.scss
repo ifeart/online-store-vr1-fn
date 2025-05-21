@@ -8,6 +8,13 @@
     max-width: 1300px;
 }
 
+.h1 {
+    max-width: 1240px;
+    align-self: center;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
 @media (min-width: 600px) {
     .product-grid {
         grid-template-columns: repeat(2, 1fr);

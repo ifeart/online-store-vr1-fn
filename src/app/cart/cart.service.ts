@@ -15,15 +15,10 @@ export class CartService {
   private cartItems = new BehaviorSubject<CartItem[]>([]);
   private AuthService = inject(AuthService);
   private isLogin: boolean = false;
+  private allApiUrls = AllUrls;
   private readonly LOCAL_STORAGE_KEY = 'guest_cart';
-  private getCartApiUrl = AllUrls.GetCartApiUrl;
-  private syncCartApiUrl = AllUrls.SyncCartApiUrl;
-  private updateItemApiUrl = AllUrls.UpdateItemApiUrl;
-  private patchCartApiUrl = AllUrls.PatchCartApiUrl;
-  private getCartPricesApiUrl = AllUrls.GetCartPricesApiUrl;
 
-
-  constructor(  ) {
+  constructor() {
     this.initAuthListener();
   }
 
@@ -50,7 +45,7 @@ export class CartService {
     const localCart = this.getLocalCart();
     if (localCart.length > 0) {
       try {
-        this.http.post(this.syncCartApiUrl, localCart).subscribe();
+        this.http.post(this.allApiUrls.SyncCart, localCart).subscribe();
         localStorage.removeItem(this.LOCAL_STORAGE_KEY);
       } catch (error) {
         console.error('Sync cart error: ', error);
@@ -66,7 +61,7 @@ export class CartService {
   }
 
   private fetchServerCart(): Observable<CartItem[]> {
-    return this.http.get<CartItem[]>(this.getCartApiUrl).pipe(
+    return this.http.get<CartItem[]>(this.allApiUrls.GetCart).pipe(
       tap(items => {
         this.cartItems.next(items);
         this.updateCartCount();
@@ -80,8 +75,10 @@ export class CartService {
   }
 
   addItem(item: CartItem): void {
-    if (this.isLogin) {
-      this.http.put(this.updateItemApiUrl, item).subscribe({
+    if (item.quantity === 0) {
+      this.removeItem(item)
+    } else if (this.isLogin) {
+      this.http.post<CartItem[]>(this.allApiUrls.UpdateItem, item).subscribe({
         next: () => this.fetchServerCart().subscribe(() => this.updateCartCount()),
         error: (err) => console.error('Add item error: ', err)
       });
@@ -92,7 +89,7 @@ export class CartService {
           i.size === item.size &&
           i.article === item.article
         );
-        existing ? existing.quantity += item.quantity : current.push(item);
+        existing ? existing.quantity = item.quantity : current.push(item);
         return current;
       });
       this.updateCartCount();
@@ -101,7 +98,7 @@ export class CartService {
   
   removeItem(item: CartItem): void {
     if (this.isLogin) {
-      this.http.delete(`${this.updateItemApiUrl}`, {body: {
+      this.http.delete(`${this.allApiUrls.UpdateItem}`, {body: {
         id: item.id,
         size: item.size,
         article: item.article
@@ -121,37 +118,17 @@ export class CartService {
     }
   }
 
-  updateQuantity(item: CartItem): void {
-    if (this.isLogin) {
-      this.http.patch(`${this.patchCartApiUrl}/${item.id}`, item).subscribe({
-        next: () => this.fetchServerCart().subscribe(() => this.updateCartCount()),
-        error: (err) => console.error('Update quantity error: ', err)
-      });
-    } else {
-      this.updateLocalCart(current =>
-        current.map(i => (
-          i.id === item.id &&
-          i.size === item.size &&
-          i.article === item.article) ? { ...i, quantity: item.quantity } : i
-        )
-      );
-      this.updateCartCount();
-    }
-  }
-
   private updateLocalCart(updateFn: (items: CartItem[]) => CartItem[]): void {
     const updated = updateFn([...this.cartItems.value]);
     this.cartItems.next(updated);
     localStorage.setItem(this.LOCAL_STORAGE_KEY, JSON.stringify(updated));
   };
 
-
-
   clearCart(): void {
     this.cartItems.next([]);
     localStorage.removeItem(this.LOCAL_STORAGE_KEY);
     if (this.isLogin) {
-      this.http.delete(this.getCartApiUrl).subscribe();
+      this.http.delete(this.allApiUrls.GetCart).subscribe();
     }
     this.updateCartCount();
   }
@@ -193,10 +170,9 @@ export class CartService {
       id: item.id_from_product,
       quantity: item.quantity
     }));
-    console.log(req);
 
     this.http.post<{prices: ItemPrice[], finalPrice: number}>(
-      this.getCartPricesApiUrl,
+      this.allApiUrls.GetCartPrices,
       {products: req}
       ).subscribe({
         next: (res) => {

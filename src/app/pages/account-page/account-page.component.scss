@@ -10,7 +10,9 @@
 
 .profile-form {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 14px;
 }
 
@@ -53,9 +55,44 @@
     outline: none;
 }
 
+.adress-setting {   
+    width: 100%;
+}
+
+.account-setting-button {
+    box-sizing: border-box;
+    padding: 15px 30px;
+    font-family: 'Futura', sans-serif;
+    border-radius: 35px;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: 300;
+
+}
+
+.account-btns {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
 @media (max-width: 1240px) {
     .account-container {
         margin-left: 16px;
         margin-right: 16px;
+    }
+}
+
+@media (max-width: 978px) {
+    .account-container {
+        gap: 16px;
+    }
+
+    .account-btns {
+        gap: 10px;
+    }
+    
+    .account-setting-button {
+        font-size: 18px;
     }
 }

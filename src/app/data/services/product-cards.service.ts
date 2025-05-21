@@ -11,28 +11,37 @@ import { ProductSizes } from '../interfaces/product-sizes.interfaces';
 })
 
 export class ProductCardsService {
-  private productBaseApiUrl = AllUrls.ProductCardsApiUrl;
-  private getProductBaseApiUrl = AllUrls.getProductApiUrl
-  private productSizesApiUrl = AllUrls.ProductSizesApiUrl;
-  private productCategoryBaseApiUrl = AllUrls.ProductCardsCategoryApiUrl;
+  private productBase = AllUrls.ProductCards;
+  private getProductBase = AllUrls.getProduct
+  private productSizes = AllUrls.ProductSizes;
+  private productCategoryBase = AllUrls.ProductCardsCategory;
 
   private http = inject(HttpClient)
 
   getProductCards(): Observable<ProductCards[]> {
-    return this.http.get<ProductCards[]>(this.productBaseApiUrl);
+    return this.http.get<ProductCards[]>(this.productBase);
   }
 
   getProduct(id_product: string): Observable<ProductCards> {
-    return this.http.get<ProductCards>(`${this.getProductBaseApiUrl}/${id_product}`);
+    return this.http.get<ProductCards>(`${this.getProductBase}/${id_product}`);
   }
 
   getProductSizes(id_product: string): Observable<ProductSizes[]> {
-    return this.http.get<ProductSizes[]>(`${this.productSizesApiUrl}/${id_product}`);
+    return this.http.get<ProductSizes[]>(`${this.productSizes}/${id_product}`);
+  }
+
+  getProductsNewCollection(): Observable<ProductCards[]> {
+    return this.http.get<ProductCards[]>(`${this.productBase}/new`);
+    // ДОБАВИТЬ В API
+  }
+
+  getProductsSale(): Observable<ProductCards[]> {
+    return this.http.get<ProductCards[]>(`${this.productBase}/sale`);
   }
 
   getProductCardsCategory(category: string | null): Observable<ProductCards[]> {
     if (category) {
-      return this.http.get<ProductCards[]>(`${this.productCategoryBaseApiUrl}/${category}`);
+      return this.http.get<ProductCards[]>(`${this.productCategoryBase}/${category}`);
     } else {
       return this.getProductCards();
     }

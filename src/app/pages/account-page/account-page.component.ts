@@ -3,6 +3,8 @@ import { Profile } from '../../data/interfaces/profile.interfaces';
 import { AccountService } from '../../data/services/account.service';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../auth/auth.service';
+import { DynamicTitleService } from '../../data/services/dynamic-title.service';
+import { Country } from '../../data/interfaces/country.interfaces';
 
 @Component({
   selector: 'app-account-page',
@@ -12,9 +14,11 @@ import { AuthService } from '../../auth/auth.service';
   styleUrl: './account-page.component.scss'
 })
 export class AccountPageComponent implements OnInit{  
+  dynamicTitleService = inject(DynamicTitleService);
   accountService = inject(AccountService);
   authService = inject(AuthService);
   profile: Profile | null = null;
+  countries: Country[] | null = null;
   isEmailNewsSubscription = signal<boolean>(false);
 
   profileForm: FormGroup = new FormGroup({
@@ -30,6 +34,20 @@ export class AccountPageComponent implements OnInit{
 
   ngOnInit(): void {
     this.loadProfile();
+    this.loadCountries();
+    
+    this.dynamicTitleService.setTitle('Аккаунт');
+  }
+
+  loadCountries(): void {
+    this.accountService.getCountryList().subscribe({
+      next: (countries) => {
+        this.countries = countries;
+      },
+      error: (err) => {
+        // Обработка ошибки при получении данных стран
+      },
+    })
   }
 
   loadProfile(): void {
@@ -60,10 +78,8 @@ export class AccountPageComponent implements OnInit{
 
   onSubmit(): void {
     if (this.profileForm.valid) {
-      console.log("Form valid");
       this.accountService.updateAccount(this.profileForm.value).subscribe(
         response => {
-          console.log(`Profile upd: ${response}`);
         },
         error => {
           console.log(`Profile upd error: ${error}`);

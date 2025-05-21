@@ -12,9 +12,9 @@ import { Router } from '@angular/router';
 export class AuthService {
   private http: HttpClient = inject(HttpClient);
   private router = inject(Router);
-  private loginBaseApiUrl = AllUrls.LoginApiUrl;
-  private sugnupBaseApiUrl = AllUrls.RegisterApiUrl;
-  private refreshBaseApuUrl = AllUrls.RefreshTokenApiUrl;
+  private loginBase = AllUrls.Login;
+  private sugnupBase = AllUrls.Register;
+  private refreshBaseApuUrl = AllUrls.RefreshToken;
   cookieService = inject(CookieService);
 
   accessToken: string | null = null;
@@ -35,13 +35,13 @@ export class AuthService {
     this.authSubject.next(status);
   }
 
-  getAuthStatus():Observable<boolean> {
+  getAuthStatus(): Observable<boolean> {
     return this.authSubject.asObservable();
   }
 
   login(payload: {email: string, password: string}) {
     return this.http.post<TokenResponse>(
-      this.loginBaseApiUrl,
+      this.loginBase,
       payload)
         .pipe(
           tap(val => {
@@ -53,7 +53,7 @@ export class AuthService {
     
   signup(payload: {email: string, password: string}) {
     return this.http.post<TokenResponse>(
-      this.sugnupBaseApiUrl,
+      this.sugnupBase,
       payload)
         .pipe(
           tap(val => {

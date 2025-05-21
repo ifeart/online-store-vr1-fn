@@ -1,7 +1,8 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../auth/auth.service';
 import { Router } from '@angular/router';
+import { DynamicTitleService } from '../../data/services/dynamic-title.service';
 
 @Component({
   selector: 'app-login-page',
@@ -10,7 +11,8 @@ import { Router } from '@angular/router';
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.scss'
 })
-export class LoginPageComponent {
+export class LoginPageComponent implements OnInit {
+  dynamicTitleService = inject(DynamicTitleService);
   authService = inject(AuthService);
   router = inject(Router);
 
@@ -20,6 +22,10 @@ export class LoginPageComponent {
     email: new FormControl(null,[Validators.required, Validators.email]),
     password: new FormControl(null, Validators.required)
   })
+
+  ngOnInit(): void {
+    this.dynamicTitleService.setNewTitle('Вход в аккаунт');
+  }
 
   onSubmit() {
     if (this.loginForm.valid) {

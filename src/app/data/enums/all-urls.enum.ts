@@ -1,32 +1,29 @@
 export enum AllUrls {
-    // localIp = 'localhost',
-    localIp = '192.168.0.101',
-    // localIp = '10.60.11.75',
+    // localIp = '192.168.0.103',
+    localIp = 'localhost',
+    // localIp = '10.60.1.164',
 
-    BaseDataBaseApiUrl = `http://${localIp}:3005/api`,
-    ProductCardsApiUrl = `${BaseDataBaseApiUrl}/products`,
-    getProductApiUrl = `${BaseDataBaseApiUrl}/product`,
-    ProductSizesApiUrl = `${BaseDataBaseApiUrl}/product-sizes`,
-    CategoriesProducts = `${BaseDataBaseApiUrl}/categories`,
-    ProductCardsCategoryApiUrl = `${BaseDataBaseApiUrl}/category`,
+    BaseDataBase = `http://${localIp}:3006/api`,
+    ProductCards = `${BaseDataBase}/products`,
+    getProduct = `${BaseDataBase}/product`,
+    ProductSizes = `${BaseDataBase}/product-sizes`,
+    CategoriesProducts = `${BaseDataBase}/categories`,
+    ProductCardsCategory = `${BaseDataBase}/category`,
 
-    AuthBaseApiUrl = `http://${localIp}:3006/api`,
-    LoginApiUrl = `${AuthBaseApiUrl}/login`,
-    RefreshTokenApiUrl = `${AuthBaseApiUrl}/refresh`,
-    RegisterApiUrl = `${AuthBaseApiUrl}/register`,
-    AccountApiUrl = `${AuthBaseApiUrl}/account/me`,
-    EmailToSubscribeApiUrl = `${AuthBaseApiUrl}/email/subscribe`,
+    AuthBase = `http://${localIp}:3006/api`,
+    Login = `${AuthBase}/login`,
+    RefreshToken = `${AuthBase}/refresh`,
+    Register = `${AuthBase}/register`,
+    Account = `${AuthBase}/account/me`,
+    EmailToSubscribe = `${AuthBase}/email/subscribe`,
+    Country = `${AuthBase}/countries`,
     
 
-    CartBaseApiUrl = `http://${localIp}:3007/api`,
-    GetCartApiUrl = `${CartBaseApiUrl}/cart`,
-    SyncCartApiUrl = `${CartBaseApiUrl}/cart/sync`,
-    UpdateItemApiUrl = `${CartBaseApiUrl}/cart/item`,
-    PatchCartApiUrl = `${CartBaseApiUrl}/cart/items`,
-    GetCartPricesApiUrl = `${CartBaseApiUrl}/cart/prices`,
-
-
-    
+    CartBase = `http://${localIp}:3006/api`,
+    GetCart = `${CartBase}/cart`,
+    SyncCart = `${CartBase}/cart/sync`,
+    UpdateItem = `${CartBase}/cart/item`,
+    GetCartPrices = `${CartBase}/cart/prices`,
 
     ImageProduct = '/assets/images/product-card-image/',
 }

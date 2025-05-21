@@ -30,6 +30,7 @@ export class CategoryPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.categorySlug = this.route.snapshot.paramMap.get('id_category');
+    console.log(this.categorySlug)
     this.route.paramMap.subscribe(params => {
       this.categorySlug = params.get('id_category'); // Получаем новый slug
       if (this.categorySlug) {

@@ -64,7 +64,7 @@ export class ProductDetailPageComponent implements OnInit {
       id_from_product: productSizeInfo.id_from_product,
       size: productSizeInfo.size,
       article: productSizeInfo.article,
-      quantity: 1,
+      quantity: this.valueAddToCart,
       id_product: productSizeInfo.id_product,
       image: productDefaultInfo.images_list_product[0],
       name: productDefaultInfo.name_product
@@ -78,7 +78,7 @@ export class ProductDetailPageComponent implements OnInit {
   }
 
   btnMinusToCart(): void {
-    if (this.valueAddToCart !== 0) {
+    if (this.valueAddToCart > 0) {
       this.valueAddToCart--;
     }
   }

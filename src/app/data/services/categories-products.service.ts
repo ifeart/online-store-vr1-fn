@@ -15,6 +15,4 @@ export class CategoriesProductsService {
   getCategoriesProducts(): Observable<CategoriesProducts[]> {
     return this.http.get<CategoriesProducts[]>(this.categoriesBaseApiUrl);
   }
-
-  
 }

@@ -1,6 +1,6 @@
 <div class="account-container">
     @if (profile) {
-        <h1 class="h1">Настройки вашей учетной записи</h1>
+        <h1 class="h1">Настройки аккаунта</h1>
         <form class="profile-form"
             [formGroup]="profileForm"
             (ngSubmit)="onSubmit()">
@@ -12,6 +12,7 @@
                         <input 
                             class="account-setting-input"
                             placeholder="Введите имя"
+                            type="text"
                             formControlName="first_name">
                     </label>
                     <label class="account-setting-label">
@@ -49,39 +50,62 @@
                             placeholder="Введите номер телефона"
                             formControlName="phone_number">
                     </label>
+                    <div class="account-setting-label">
+                        Подписка на акции и новости
+                        <label class="switch">
+                            <input 
+                            class="switch-input"
+                            type="checkbox"
+                            formControlName="email_subscription_news">
+                            <span class="slider round-switch"></span>
+                        </label>
+                    </div>
                 </div>
             </div>
-
             <div class="account-setting-block">
-                <label class="account-setting-label">
+                <label class="account-setting-label adress-setting">
                     Страна
-                    <input 
-                        class="account-setting-input"
-                        type="text"
-                        placeholder="Введите страну"
+                    <select 
+                        required
+                        class="account-setting-input adress-setting"
                         formControlName="country">
+                        <option selected disabled value="">Выберите страну</option>
+                        @if (countries) {
+                            <!-- <option select disabled>Выберите страну</option> -->
+                            @for (country of countries; track country.id) {
+                                <option [value]="country.name">{{  country.rus_name  }}</option>
+                            } 
+                        }
+                    </select>
+                    <!-- <input 
+                        class="account-setting-input adress-setting"
+                        type="text"
+                        placeholder="Выберите страну"
+                        formControlName="country"> -->
                 </label>
-                <label class="account-setting-label">
+                <label class="account-setting-label adress-setting">
                     Полный адрес
                     <input 
-                        class="account-setting-input"
+                        class="account-setting-input adress-setting"
                         type="text"
                         placeholder="Введите полный адрес"
                         formControlName="full_address">
                 </label>
-                <div class="account-setting-label">
-                    Подписка на акции и новости
-                    <label class="switch">
-                    <input 
-                        class="switch-input"
-                        type="checkbox"
-                        formControlName="email_subscription_news">
-                    <span class="slider round-switch"></span>
-                    </label>
-                </div>
             </div>
-            <button class="account-setting-button" type="submit">Сохранить</button>
+            <!-- <button class="account-setting-button" type="submit">Сохранить</button> -->
         </form>
+        <div class="account-btns">
+            <button
+                class="account-setting-button hover-invert-animation" 
+                type="submit" 
+                (click)="onSubmit()">
+                Сохранить
+            </button>
+            <button 
+                class="account-setting-button hover-invert-animation"
+                (click)="logout()">
+                Выйти из аккаунта
+            </button>
+        </div>
     }
-    <button (click)="logout()">Выйти</button>
 </div>

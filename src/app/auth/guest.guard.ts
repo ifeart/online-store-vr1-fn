@@ -6,7 +6,7 @@ export const canActivateSignup = (): boolean | UrlTree => {
     const isLoggedIn = inject(AuthService).isAuth;
 
     if (isLoggedIn) {
-        return inject(Router).createUrlTree(["/account"]);
+        return inject(Router).createUrlTree(['/account']);
     }
 
     return true;

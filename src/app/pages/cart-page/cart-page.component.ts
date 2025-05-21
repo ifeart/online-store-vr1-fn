@@ -7,16 +7,19 @@ import { AddToCartBtnComponent } from "../../components/shop-components/add-to-c
 import { ImgUrlPipe } from "../../helpers/pipes/img-url.pipe";
 import { ProductUrlPipe } from "../../helpers/pipes/product-url.pipe";
 import { ItemPrice } from '../../cart/item-price.interface';
+import { DynamicTitleService } from '../../data/services/dynamic-title.service';
 
 @Component({
   selector: 'app-cart-page',
   standalone: true,
-  imports: [RouterLink, ReactiveFormsModule, AddToCartBtnComponent, ImgUrlPipe, ProductUrlPipe],
+  imports: [RouterLink, ReactiveFormsModule, ImgUrlPipe, ProductUrlPipe],
   templateUrl: './cart-page.component.html',
   styleUrl: './cart-page.component.scss'
 })
 export class CartPageComponent implements OnInit {
   cartService = inject(CartService);
+  dynamicTitleService = inject(DynamicTitleService);
+
   cartItems: CartItem[] = [];
   itemsPrices: ItemPrice[] = [];
   cartCount: number = 0;
@@ -28,6 +31,7 @@ export class CartPageComponent implements OnInit {
   });
 
   ngOnInit(): void {
+    this.dynamicTitleService.setTitle('Корзина');
     this.cartService.getCart$().subscribe(items => {
       this.cartItems = items;
       this.getItemsPrices(items);
@@ -37,14 +41,12 @@ export class CartPageComponent implements OnInit {
       val => this.cartCount = val
     );
   }
-
   
   removeItem(item: CartItem): void {
     this.cartService.removeItem(item);
   }
 
   getItemsPrices(cartItems: CartItem[]): void {
-    console.log(cartItems);
     this.cartService.getItemsPrices$(cartItems).subscribe(prices => {
       this.itemsPrices = prices;
       this.addPriceToCartItems();
@@ -63,6 +65,19 @@ export class CartPageComponent implements OnInit {
   }
 
   
+  btnMinusToCart(item: CartItem): void {
+    if (item.quantity !== 0) {
+      item.quantity--
+      this.cartService.addItem(item);
+    }
+  }
+
+  btnPlusToCart(item: CartItem): void {
+    item.quantity++
+    this.cartService.addItem(item);
+  }
+
+
 
   checkPromoCode(): void {
     if (this.promoCodeForm.valid) {
